@@ -9,21 +9,25 @@ import SwiftUI
 
 struct Card: View {
     let emoji = "👻"
-    let isFaceUP: Bool
+    @State var isFaceUP: Bool
     
     var body: some View {
+        let baseShape = RoundedRectangle(cornerRadius: 12.0)
         ZStack {
             if isFaceUP {
-                RoundedRectangle(cornerRadius: 12.0)
+                baseShape
                     .foregroundStyle(.white)
-                RoundedRectangle(cornerRadius: 12.0)
+                baseShape
                     .stroke(style: StrokeStyle(lineWidth: 6))
                 Text(emoji)
                     .font(.largeTitle)
             } else {
-                RoundedRectangle(cornerRadius: 12.0)
+                baseShape
                     .stroke(style: StrokeStyle(lineWidth: 6))
             }
+        }
+        .onTapGesture {
+            isFaceUP.toggle()
         }
     }
 }
@@ -34,4 +38,5 @@ struct Card: View {
         Card(isFaceUP: false)
         Card(isFaceUP: true)
     }
+    .padding()
 }
