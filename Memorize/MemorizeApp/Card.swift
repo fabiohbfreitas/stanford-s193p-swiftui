@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Card: View {
-    let emoji = "👻"
+    let emoji: String
+    
     @State var isFaceUP: Bool
     
     var body: some View {
@@ -35,8 +36,8 @@ struct Card: View {
 
 #Preview {
     VStack {
-        Card(isFaceUP: false)
-        Card(isFaceUP: true)
+        Card(emoji: "👻", isFaceUP: false)
+        Card(emoji: "👻", isFaceUP: true)
     }
     .padding()
 }
