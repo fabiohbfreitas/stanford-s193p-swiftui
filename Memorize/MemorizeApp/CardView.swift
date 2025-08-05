@@ -7,25 +7,25 @@
 
 import SwiftUI
 
-struct Card: View {
+struct CardView: View {
     let emoji: String
-    
     @State var isFaceUP: Bool
     
     var body: some View {
         let baseShape = RoundedRectangle(cornerRadius: 12.0)
         ZStack {
-            if isFaceUP {
+            Group {
                 baseShape
                     .foregroundStyle(.white)
                 baseShape
                     .stroke(style: StrokeStyle(lineWidth: 6))
                 Text(emoji)
                     .font(.largeTitle)
-            } else {
-                baseShape
-                    .stroke(style: StrokeStyle(lineWidth: 6))
             }
+            .opacity(isFaceUP ? 1 : 0)
+            baseShape
+                .stroke(style: StrokeStyle(lineWidth: 6))
+                .opacity(isFaceUP ? 0 : 1)
         }
         .onTapGesture {
             isFaceUP.toggle()
@@ -36,8 +36,8 @@ struct Card: View {
 
 #Preview {
     VStack {
-        Card(emoji: "👻", isFaceUP: false)
-        Card(emoji: "👻", isFaceUP: true)
+        CardView(emoji: "👻", isFaceUP: false)
+        CardView(emoji: "👻", isFaceUP: true)
     }
     .padding()
 }
