@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		9F062ECA2E42DA8D0015BAAE /* Memorize.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Memorize.xcodeproj; sourceTree = "<group>"; };
 		9F9B177C2E42792100D9C6A2 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F9B178E2E4279D600D9C6A2 /* Memorize.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Memorize.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -30,6 +31,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F062ECB2E42DA8D0015BAAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9F9B17732E42792100D9C6A2 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +117,10 @@
 				{
 					ProductGroup = 9F9B178F2E4279D600D9C6A2 /* Products */;
 					ProjectRef = 9F9B178E2E4279D600D9C6A2 /* Memorize.xcodeproj */;
+				},
+				{
+					ProductGroup = 9F062ECB2E42DA8D0015BAAE /* Products */;
+					ProjectRef = 9F062ECA2E42DA8D0015BAAE /* Memorize.xcodeproj */;
 				},
 			);
 			projectRoot = "";
