@@ -36,8 +36,9 @@ struct CardView: View {
                     .stroke(style: StrokeStyle(lineWidth: 6))
             }
             .foregroundStyle(.orange.gradient)
-                .opacity(card.isFaceUp ? 0 : 1)
+            .opacity(card.isFaceUp ? 0 : 1)
         }
+        .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
     }
 }
 
