@@ -11,7 +11,7 @@ struct EmojiMemoryGameView: View {
     @Bindable var viewModel: EmojiMemoryGame
     
     private let aspectRatio: CGFloat = 2/3
-    private let spacing: CGFloat = 24
+    private let spacing: CGFloat = 4
     
     var body: some View {
         VStack {

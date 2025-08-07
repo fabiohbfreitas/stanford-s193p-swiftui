@@ -11,11 +11,11 @@ import SwiftUI
 class EmojiMemoryGame {
     typealias EmojiGame = MemoryGame<String>
     
-    private static let emojis = ["👻", "🎃", "🕷️", "😈", "🧟‍♂️" ]
+    private static let emojis = ["👻", "🎃", "🕷️", "😈", "🧟‍♂️", "🦇", "🧙‍♀️", "🧛‍♂️", "🏴‍☠️", "🍭"]
     
     private static func createMemoryGame() -> EmojiGame {
         return EmojiGame(
-            numberOfPairOfCards: 2,
+            numberOfPairOfCards: 10,
             cardContentFactory: { pairIndex in
                 guard emojis.indices.contains(pairIndex) else {
                     return "❗"

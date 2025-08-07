@@ -16,38 +16,20 @@ struct CardView: View {
     }
     
     var body: some View {
-        let baseShape = RoundedRectangle(cornerRadius: Constants.cornerRadius)
-        ZStack {
-            Group {
-                baseShape
-                    .foregroundStyle(.white.gradient)
-                baseShape
-                    .stroke(style: StrokeStyle(lineWidth: Constants.lineWidth))
-                    .foregroundStyle(.orange)
-                Pie(endAngle: .degrees(240))
-                    .fill(.orange)
-                    .opacity(Constants.TimerShape.shade)
-                    .scaleEffect(Constants.TimerShape.scaleFactor)
-                    .overlay {
-                        Text(card.content)
-                            .font(.system(size: Constants.FontSize.largest))
-                            .minimumScaleFactor(Constants.FontSize.scaleFactor)
-                            .multilineTextAlignment(.center)
-                            .aspectRatio(1, contentMode: .fill)
-                    }
-                    .padding(Constants.inset)
+        Pie(endAngle: .degrees(240))
+            .fill(.orange)
+            .opacity(Constants.TimerShape.shade)
+            .scaleEffect(Constants.TimerShape.scaleFactor)
+            .overlay {
+                Text(card.content)
+                    .font(.system(size: Constants.FontSize.largest))
+                    .minimumScaleFactor(Constants.FontSize.scaleFactor)
+                    .multilineTextAlignment(.center)
+                    .aspectRatio(1, contentMode: .fill)
             }
-            .opacity(card.isFaceUp ? 1 : 0)
-            Group {
-                baseShape
-                    .opacity(Constants.backgroundShade)
-                baseShape
-                    .stroke(style: StrokeStyle(lineWidth: Constants.lineWidth))
-            }
-            .foregroundStyle(.orange.gradient)
-            .opacity(card.isFaceUp ? 0 : 1)
-        }
-        .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+            .padding(Constants.inset)
+            .cardify(isFaceUp: card.isFaceUp)
+            .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
     }
 }
 
@@ -55,18 +37,18 @@ extension CardView {
     private struct Constants {
         static let cornerRadius: CGFloat = 12
         static let lineWidth: CGFloat = 2
-        static let inset: CGFloat = 5
+        static let inset: CGFloat = 4
         static let backgroundShade: CGFloat = 0.9
         
         struct FontSize {
-            static let largest: CGFloat = 200
+            static let largest: CGFloat = 64
             static let smallest: CGFloat = 10
             static let scaleFactor: CGFloat = smallest / largest
         }
         
         struct TimerShape {
             static let shade: CGFloat = 0.4
-            static let scaleFactor: CGFloat = 0.8
+            static let scaleFactor: CGFloat = 1.0
         }
         
     }
@@ -74,7 +56,7 @@ extension CardView {
 
 
 #Preview {
-    VStack {
+    HStack {
         CardView(.init(content: "👻"))
         CardView(.init(content: "👻", isFaceUp: true ))
     }
