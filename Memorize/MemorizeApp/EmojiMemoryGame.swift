@@ -15,7 +15,7 @@ class EmojiMemoryGame {
     
     private static func createMemoryGame() -> EmojiGame {
         return EmojiGame(
-            numberOfPairOfCards: 5,
+            numberOfPairOfCards: 2,
             cardContentFactory: { pairIndex in
                 guard emojis.indices.contains(pairIndex) else {
                     return "❗"
