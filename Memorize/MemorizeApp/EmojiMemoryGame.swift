@@ -31,6 +31,10 @@ class EmojiMemoryGame {
         return model.cards
     }
     
+    var score: Int {
+        return model.score
+    }
+    
     // MARK: - Intents
     
     func choose(_ card: EmojiGame.Card) {
